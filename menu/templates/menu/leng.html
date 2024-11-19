@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор языка</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+        .language-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .language-card:hover {
+            transform: scale(1.05);
+        }
+        .language-btn {
+            margin: 10px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Выберите ваш язык</h1>
+                <div class="language-card">
+                    <button class="btn btn-primary language-btn" onclick="setLanguage('1')">Русский</button>
+                    <button class="btn btn-secondary language-btn" onclick="setLanguage('2')">Кыргызский</button>
+                    <button class="btn btn-success language-btn" onclick="setLanguage('3')">English</button>
+                    <button class="btn btn-warning language-btn" onclick="setLanguage('4')">Français</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setLanguage(language) {
+            window.location.href = '/' + language ;
+        }
+    </script>
+</body>
+</html>

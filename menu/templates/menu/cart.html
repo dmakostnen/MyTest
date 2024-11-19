@@ -1,0 +1,44 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+<h2>Корзина</h2>
+{% if cart %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Блюда</th>
+            <th>Количество</th>
+            <th>Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.dish_id }}</td>
+            <td>{{ item.dish_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }} сом.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3">Общая сумма</th>
+            <th>{{ total_price }} сом.</th>
+        </tr>
+    </tfoot>
+</table>
+<form method="post" action="{% url 'checkout_with_table' table_number=table_number %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Оформить заказ</button>
+</form>
+    <p></p>
+    <form method="post" action="{% url 'clear_cart' %}" }>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Отменить заказ</button>
+    </form>
+{% else %}
+<p>Ваша корзина пуста.</p>
+{% endif %}
+{% endblock %}

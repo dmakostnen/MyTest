@@ -1,0 +1,28 @@
+{% extends 'menu/base.html' %}
+
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Orders</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                 <th>name</th>
+                <th>Order ID</th>
+                <th>Table Number</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.table_number }}</td>
+                <td>{{ order.total_price }} rub.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

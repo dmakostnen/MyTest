@@ -1,0 +1,22 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+
+ <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Выберите метод оплаты</h1>
+                <div class="payment-card">
+                    <button class="btn btn-success payment-btn" onclick="choosePaymentMethod('card')">Безналичная оплата</button>
+                    <button class="btn btn-danger payment-btn" onclick="choosePaymentMethod('cash')">Наличная оплата</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function choosePaymentMethod(method) {
+            window.location.href = `/orders`;
+        }
+    </script>
+{% endblock %}
